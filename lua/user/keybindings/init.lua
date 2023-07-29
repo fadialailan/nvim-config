@@ -1,5 +1,6 @@
 return function()
 	local wk = require("which-key")
+	local term = "kitty"
 
 	wk.register({
 		["<leader>"] = {
@@ -14,8 +15,10 @@ return function()
 					name = "split",
 					n = { "<cmd>sbn<cr>", "next" },
 					p = { "<cmd>sbp<cr>", "prev" },
-				}
-			}
+				},
+			},
+			s = {name = "session"},
+			[";"] = {"<cmd>silent !" .. term .. "&<cr>", "open term"}
 		},
 		["<C-j>"] = { "<cmd>move +1<cr>", "move line down" },
 		["<C-k>"] = { "<cmd>move -2<cr>", "move line up" },
