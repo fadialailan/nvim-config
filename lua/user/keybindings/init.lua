@@ -38,7 +38,6 @@ return function()
 	}, { mode = { "v" } })
 
 
-	wk.register({
-		qq = {"<Esc>", "Esc"},
-	}, { mode = { "i" } })
+	--[[ wk.register({
+	}, { mode = { "i" } }) ]]
 end
