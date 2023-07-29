@@ -115,4 +115,5 @@ require("lazy").setup({
 			end, { desc = "delete" })
 		end,
 	},
+	require("user/trouble"),
 })
