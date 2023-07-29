@@ -25,6 +25,7 @@ return {
 			actions = {
 				open_file = {
 					window_picker = {
+						enable = false,
 						picker = function ()
 							vim.cmd("tabnew")
 							return vim.fn.win_getid()

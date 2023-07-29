@@ -49,7 +49,7 @@ require("lazy").setup({
 		config = require("user/nvim-cmp"),
 		lazy = false
 	},
-	{ "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
+	{ "L3MON4D3/LuaSnip",        build = "make install_jsregexp" },
 	{ "saadparwaiz1/cmp_luasnip" },
 	{
 		'nvim-telescope/telescope.nvim',
@@ -81,12 +81,38 @@ require("lazy").setup({
 		version = "*", -- Use for stability; omit to use `main` branch for the latest features
 		event = "VeryLazy",
 		opts = {},
-	}, {
+	},
+	{
 		'numToStr/Comment.nvim',
 		config = function()
 			require('Comment').setup()
 		end
 	},
+	{
+		"matbme/JABS.nvim",
+		opts = {},
+	},
 	require("user/nvim-tree"),
+	{
+		"gennaro-tedesco/nvim-possession",
+		dependencies = {
+			"ibhagwan/fzf-lua",
+		},
+		config = true,
+		init = function()
+			local possession = require("nvim-possession")
+			vim.keymap.set("n", "<leader>sl", function()
+				possession.list()
+			end, { desc = "list" })
+			vim.keymap.set("n", "<leader>sn", function()
+				possession.new()
+			end, { desc = "new" })
+			vim.keymap.set("n", "<leader>su", function()
+				possession.update()
+			end, { desc = "update" })
+			vim.keymap.set("n", "<leader>sd", function()
+				possession.delete()
+			end, { desc = "delete" })
+		end,
+	},
 })
-
