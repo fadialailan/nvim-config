@@ -11,6 +11,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		-- See `:help vim.lsp.*` for documentation on any of the below functions
 		local n_opts = { buffer = ev.buf }
 		local nv_opts = { mode = { "n", "v" }, buffer = ev.buf }
+		local ni_opts = { mode = { "n", "i" }, buffer = ev.buf }
 
 		--normal mode
 		wk.register({
@@ -41,6 +42,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 				}
 			}
 		}, n_opts)
+
+		-- noraml and visual
 		wk.register({
 			["<leader>"] = {
 				c = {
@@ -49,22 +52,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 				}
 			}
 		}, nv_opts)
-		--vim.keymap.set('n', '<leader>gD', vim.lsp.buf.declaration, n_opts)
-		--vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, n_opts)
-		--vim.keymap.set('n', '<leader>gh', vim.lsp.buf.hover, n_opts)
-		--vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, n_opts)
-		--vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, n_opts)
-		--vim.keymap.set('n', '<leader>cwa', vim.lsp.buf.add_workspace_folder, n_opts)
-		--vim.keyvim.keymap.set('n', '<leader>cwr', vim.lsp.buf.remove_workspace_folder, n_opts)
-		--vim.keyvim.keymap.set('n', '<leader>cwl', function()
-		--	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-		--end, n_opts)
-		--vim.keymap.set('n', '<leader>cd', vim.lsp.buf.type_definition, n_opts)
-		--vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, n_opts)
-		--vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, n_opts)
-		--vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, n_opts)
-		--vim.keymap.set('n', '<leader>cf', function()
-		--	vim.lsp.buf.format { async = true }
-		--end, n_opts)
+
+		-- noraml and insert
+		wk.register({
+			["<c-s>"] = { vim.lsp.buf.signature_help, "signature help" }
+		}, ni_opts)
 	end,
 })

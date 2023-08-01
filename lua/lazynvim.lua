@@ -116,4 +116,12 @@ require("lazy").setup({
 		end,
 	},
 	require("user/trouble"),
+	{
+		"sindrets/diffview.nvim",
+		config = function()
+			require("diffview").setup({})
+
+			vim.keymap.set("n", "<leader>cgd", "<cmd>DiffviewOpen<cr>", { desc = "diffview" })
+		end
+	},
 })
