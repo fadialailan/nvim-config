@@ -124,4 +124,15 @@ require("lazy").setup({
 			vim.keymap.set("n", "<leader>cgd", "<cmd>DiffviewOpen<cr>", { desc = "diffview" })
 		end
 	},
+	{
+		"gbprod/cutlass.nvim",
+		opts = {
+			cut_key = "m",
+			registers = {
+				select = "_",
+				delete = "_",
+				change = "_",
+			},
+		},
+	},
 })
