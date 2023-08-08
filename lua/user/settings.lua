@@ -12,3 +12,6 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
+-- do not fold everything from the start
+vim.opt.foldlevelstart = 99
+
