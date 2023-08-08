@@ -1,5 +1,15 @@
+local util = require("lspconfig.util")
+
 local M = {}
 
+local function or_pwd(func)
+	return function (filename)
+		local default_root_dir_value = func(filename)
+		local pwd = vim.fn.getcwd()
+		return default_root_dir_value or pwd
+	end
+	
+end
 
 M.lua_ls = {
 	settings = {
@@ -53,5 +63,17 @@ M.rust_analyzer = {
 }
 
 M.zls = {}
+
+M.serve_d = {
+	--[[ root_dir = function (filename)
+		local default_root_dir_value = util.root_pattern("dub.json", "dub.sdl", ".git")(filename)
+		local pwd = vim.fn.getcwd()
+		return default_root_dir_value or pwd
+	end ]]
+	root_dir = or_pwd(util.root_pattern("dub.json", "dub.sdl", ".git"))
+}
+
+M.jdtls = {}
+
 
 return M
