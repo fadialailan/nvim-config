@@ -15,3 +15,7 @@ vim.opt.termguicolors = true
 -- do not fold everything from the start
 vim.opt.foldlevelstart = 99
 
+-- go down based on screen line and file line (for wrapping)
+vim.keymap.set({"v", "n"}, "j", "gj")
+vim.keymap.set({"v", "n"}, "k", "gk")
+
