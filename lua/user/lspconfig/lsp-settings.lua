@@ -3,12 +3,11 @@ local util = require("lspconfig.util")
 local M = {}
 
 local function or_pwd(func)
-	return function (filename)
+	return function(filename)
 		local default_root_dir_value = func(filename)
 		local pwd = vim.fn.getcwd()
 		return default_root_dir_value or pwd
 	end
-	
 end
 
 M.lua_ls = {
@@ -75,5 +74,12 @@ M.serve_d = {
 
 M.jdtls = {}
 
+M.ccls = {
+	init_options = {
+		cache = {
+			directory = ".ccls-cache",
+		},
+	},
+}
 
 return M
