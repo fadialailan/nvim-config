@@ -18,6 +18,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 			["<leader>"] = {
 				c = {
 					name = "code",
+					b = {
+						name = "buffer",
+						s = { "<cmd>SymbolsOutline<cr>", "symbols" },
+					},
 					d = { vim.lsp.buf.definition, "definition" },
 					D = { vim.lsp.buf.declaration, "declaration" },
 					f = { function()

@@ -17,9 +17,9 @@ return function()
 					p = { "<cmd>sbp<cr>", "prev" },
 				},
 			},
-			s = {name = "session"},
-			x = {name = "trouble"},
-			[";"] = {"<cmd>silent !" .. term .. "&<cr>", "open term"}
+			s = { name = "session" },
+			x = { name = "trouble" },
+			[";"] = { "<cmd>silent !" .. term .. "&<cr>", "open term" }
 		},
 		["<C-j>"] = { "<cmd>move +1<cr>", "move line down" },
 		["<C-k>"] = { "<cmd>move -2<cr>", "move line up" },
@@ -36,8 +36,8 @@ return function()
 	wk.register({
 		["<C-j>"] = { ":move '>+1<cr>gv", "move region down" },
 		["<C-k>"] = { ":move '<-2<cr>gv", "move region up" },
-		["."] = {">gv", "indent"},
-		[","] = {"<gv", "remove indent"},
+		["."] = { ">gv", "indent" },
+		[","] = { "<gv", "remove indent" },
 	}, { mode = { "v" } })
 
 

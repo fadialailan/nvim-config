@@ -4,6 +4,7 @@ vim.opt.timeoutlen = 500
 vim.opt.switchbuf = "vsplit"
 vim.g.mapleader = " "
 vim.g.confirm = true
+vim.opt.wrap = false
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
@@ -18,4 +19,9 @@ vim.opt.foldlevelstart = 99
 -- go down based on screen line and file line (for wrapping)
 vim.keymap.set({"v", "n"}, "j", "gj")
 vim.keymap.set({"v", "n"}, "k", "gk")
+
+-- markers
+vim.cmd("highlight IndentBlanklineContextChar guifg=#FFFFFF gui=nocombine")
+vim.opt.list = true
+vim.opt.listchars:append "eol:↴"
 

@@ -121,7 +121,7 @@ require("lazy").setup({
 		config = function()
 			require("diffview").setup({})
 
-			vim.keymap.set("n", "<leader>cgd", "<cmd>DiffviewOpen<cr>", { desc = "diffview" })
+			vim.keymap.set("n", "<leader>cgD", "<cmd>DiffviewOpen<cr>", { desc = "diffview" })
 		end
 	},
 	{
@@ -136,7 +136,7 @@ require("lazy").setup({
 		},
 	},
 	{ "windwp/nvim-ts-autotag", opts = {}, },
-	{
+	--[[ {
 		"lukas-reineke/indent-blankline.nvim",
 		config = function()
 			vim.cmd("highlight IndentBlanklineContextChar guifg=#FFFFFF gui=nocombine")
@@ -148,5 +148,22 @@ require("lazy").setup({
 				-- show_current_context_start = true,
 			}
 		end
-	},
+	}, ]]
+	{ "mfussenegger/nvim-dap" },
+	{ "rcarriga/nvim-dap-ui",   dependencies = { "mfussenegger/nvim-dap" } },
+	{ "anuvyklack/hydra.nvim", config = function ()
+		local hydra = require("hydra")
+		hydra({
+			name = "window resize",
+			body = "<leader>wa",
+			mode = {"n"},
+			heads = {
+				{ "l", "<C-w>>", { desc = "increase width"}},
+				{ "h", "<C-w><lt>", { desc = "decrease width"}},
+				{ "k", "<C-w>+", { desc = "increase height"}},
+				{ "j", "<C-w>-", { desc = "decrease height"}},
+			},
+		})
+	end },
+	{ "simrat39/symbols-outline.nvim", opts = {}},
 })
