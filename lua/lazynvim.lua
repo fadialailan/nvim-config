@@ -43,11 +43,23 @@ require("lazy").setup({
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
+			"saadparwaiz1/cmp_luasnip",
+
 			"L3MON4D3/LuaSnip",
-			"saadparwaiz1/cmp_luasnip"
 		},
 		config = require("user/nvim-cmp"),
 		lazy = false
+	},
+	{
+		"L3MON4D3/LuaSnip",
+		-- install jsregexp (optional!).
+		build = "make install_jsregexp",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+		},
+		config = function()
+			require("luasnip.loaders.from_vscode").lazy_load()
+		end
 	},
 	{ "L3MON4D3/LuaSnip",        build = "make install_jsregexp" },
 	{ "saadparwaiz1/cmp_luasnip" },
@@ -151,19 +163,32 @@ require("lazy").setup({
 	}, ]]
 	{ "mfussenegger/nvim-dap" },
 	{ "rcarriga/nvim-dap-ui",   dependencies = { "mfussenegger/nvim-dap" } },
-	{ "anuvyklack/hydra.nvim", config = function ()
-		local hydra = require("hydra")
-		hydra({
-			name = "window resize",
-			body = "<leader>wa",
-			mode = {"n"},
-			heads = {
-				{ "l", "<C-w>>", { desc = "increase width"}},
-				{ "h", "<C-w><lt>", { desc = "decrease width"}},
-				{ "k", "<C-w>+", { desc = "increase height"}},
-				{ "j", "<C-w>-", { desc = "decrease height"}},
-			},
-		})
-	end },
-	{ "simrat39/symbols-outline.nvim", opts = {}},
+	{
+		"anuvyklack/hydra.nvim",
+		config = function()
+			local hydra = require("hydra")
+			hydra({
+				name = "window resize",
+				body = "<leader>wa",
+				mode = { "n" },
+				heads = {
+					{ "l", "<C-w>>",    { desc = "increase width" } },
+					{ "h", "<C-w><lt>", { desc = "decrease width" } },
+					{ "k", "<C-w>+",    { desc = "increase height" } },
+					{ "j", "<C-w>-",    { desc = "decrease height" } },
+				},
+			})
+		end
+	},
+	{ "simrat39/symbols-outline.nvim", opts = {} },
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+	},
+	{ "elkowar/yuck.vim" },
 })

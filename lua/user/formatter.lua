@@ -19,7 +19,22 @@ return function()
 						stdin = true,
 					}
 				end
-			}
+			},
+			html = {
+				function()
+					return {
+						exe = "tidy",
+						args = {
+							"--indent",
+							"yes",
+							"--indent-spaces",
+							"4",
+							"-",
+						},
+						stdin = true,
+					}
+				end
+			},
 		},
 	})
 
