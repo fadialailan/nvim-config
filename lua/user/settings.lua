@@ -5,6 +5,7 @@ vim.opt.switchbuf = "vsplit"
 vim.g.mapleader = " "
 vim.g.confirm = true
 vim.opt.wrap = false
+vim.opt.termguicolors = true
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1

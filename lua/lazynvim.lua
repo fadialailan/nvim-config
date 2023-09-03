@@ -191,4 +191,8 @@ require("lazy").setup({
 		},
 	},
 	{ "elkowar/yuck.vim" },
+	{'akinsho/bufferline.nvim',
+		version = "*",
+		dependencies = 'nvim-tree/nvim-web-devicons',
+	config = require("user/bufferline")},
 })
