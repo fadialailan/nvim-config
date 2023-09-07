@@ -87,4 +87,6 @@ M.html = {}
 
 M.tsserver = {}
 
+M.texlab = {}
+
 return M

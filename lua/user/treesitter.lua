@@ -3,7 +3,18 @@ return function()
 
 	treesitter.setup({
 		-- A list of parser names, or "all"
-		ensure_installed = { "c", "lua", "vim", "vimdoc", "python", "rust", "zig" },
+		-- ensure_installed = { "c", "lua", "vim", "vimdoc", "python", "rust", "zig" },
+
+		--[[ ensure_installed = {
+		    'astro','c', 'css', 'glimmer', 'graphql', 'handlebars', 'html', 'javascript',
+		    'lua', 'nix', 'php', 'python', 'rescript',"rust", 'scss', 'svelte', 'tsx', 'twig',
+		    'typescript', 'vim',"vimdoc", 'vue',"rust",
+		  }, ]]
+		ensure_installed = {
+		    'astro','c', 'css', 'glimmer', 'graphql', 'html', 'javascript',
+		    'lua', 'nix', 'php', 'python',"rust", 'scss', 'svelte', 'tsx', 'twig',
+		    'typescript', 'vim',"vimdoc", 'vue',"rust",
+		  },
 		--ensure_installed = "all"
 
 		-- Install parsers synchronously (only applied to `ensure_installed`)
@@ -29,7 +40,13 @@ return function()
 
 		incremental_selection = {
 			enable = true,
-		}
+		},
+
+		-- for nvim-ts-context-commentstring
+		context_commentstring = {
+			enable = true,
+			enable_autocmd = false,
+		},
 	})
 
 	vim.opt.foldmethod = "expr"

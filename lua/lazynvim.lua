@@ -78,6 +78,9 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = { ":TSUpdate" },
 		config = require("user/treesitter"),
+		dependencies = {
+			'JoosepAlviste/nvim-ts-context-commentstring',
+		},
 	},
 	{
 		"mhartington/formatter.nvim",
@@ -94,12 +97,17 @@ require("lazy").setup({
 		event = "VeryLazy",
 		opts = {},
 	},
-	{
+	--[[ {
 		'numToStr/Comment.nvim',
 		config = function()
 			require('Comment').setup()
-		end
-	},
+		end,
+		dependencies = {
+			'JoosepAlviste/nvim-ts-context-commentstring',
+		},
+	}, ]]
+	-- require("user.comment"),
+	require("user.mininvim"),
 	{
 		"matbme/JABS.nvim",
 		opts = {},
@@ -191,8 +199,10 @@ require("lazy").setup({
 		},
 	},
 	{ "elkowar/yuck.vim" },
-	{'akinsho/bufferline.nvim',
+	{
+		'akinsho/bufferline.nvim',
 		version = "*",
 		dependencies = 'nvim-tree/nvim-web-devicons',
-	config = require("user/bufferline")},
+		config = require("user/bufferline")
+	},
 })
