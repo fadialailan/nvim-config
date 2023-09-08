@@ -85,7 +85,13 @@ M.ccls = {
 
 M.html = {}
 
-M.tsserver = {}
+local tsserver_capabilities = vim.lsp.protocol.make_client_capabilities()
+
+tsserver_capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+M.tsserver = {
+	capabilities = tsserver_capabilities,
+}
 
 M.texlab = {}
 
