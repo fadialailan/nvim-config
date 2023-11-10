@@ -59,9 +59,10 @@ require("lazy").setup({
 		},
 		config = function()
 			require("luasnip.loaders.from_vscode").lazy_load()
+			local ls = require("luasnip")
+			vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
 		end
 	},
-	{ "L3MON4D3/LuaSnip",        build = "make install_jsregexp" },
 	{ "saadparwaiz1/cmp_luasnip" },
 	{
 		'nvim-telescope/telescope.nvim',

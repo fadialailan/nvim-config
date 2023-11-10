@@ -75,6 +75,8 @@ M.serve_d = {
 
 M.jdtls = {}
 
+
+-- root directory: root_pattern('compile_commands.json', '.ccls', '.git')
 M.ccls = {
 	init_options = {
 		cache = {
