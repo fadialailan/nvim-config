@@ -97,4 +97,8 @@ M.tsserver = {
 
 M.texlab = {}
 
+M.astro = {}
+
+M.asm_lsp = {}
+
 return M
