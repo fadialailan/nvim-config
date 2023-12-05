@@ -23,6 +23,16 @@ require("lazy").setup({
 			vim.cmd("colorscheme sonokai")
 		end
 	},
+	-- {
+	-- 	"rafamadriz/neon",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.g.neon_italic_keyword = true
+	-- 		vim.g.neon_style = "doom"
+	-- 		vim.cmd("colorscheme neon")
+	-- 	end
+	-- },
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -60,7 +70,7 @@ require("lazy").setup({
 		config = function()
 			require("luasnip.loaders.from_vscode").lazy_load()
 			local ls = require("luasnip")
-			vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
+			vim.keymap.set({ "i", "s" }, "<C-L>", function() ls.jump(1) end, { silent = true })
 		end
 	},
 	{ "saadparwaiz1/cmp_luasnip" },
@@ -156,7 +166,7 @@ require("lazy").setup({
 			},
 		},
 	},
-	{ "windwp/nvim-ts-autotag", opts = {}, },
+	{ "windwp/nvim-ts-autotag",  opts = {}, },
 	--[[ {
 		"lukas-reineke/indent-blankline.nvim",
 		config = function()
@@ -171,7 +181,7 @@ require("lazy").setup({
 		end
 	}, ]]
 	{ "mfussenegger/nvim-dap" },
-	{ "rcarriga/nvim-dap-ui",   dependencies = { "mfussenegger/nvim-dap" } },
+	{ "rcarriga/nvim-dap-ui",    dependencies = { "mfussenegger/nvim-dap" } },
 	{
 		"anuvyklack/hydra.nvim",
 		config = function()
@@ -205,5 +215,9 @@ require("lazy").setup({
 		version = "*",
 		dependencies = 'nvim-tree/nvim-web-devicons',
 		config = require("user/bufferline")
+	},
+	{
+		"0oAstro/dim.lua",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
 	},
 })
