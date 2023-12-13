@@ -3,16 +3,23 @@
 vim.api.nvim_create_autocmd('LspAttach', {
 	group = vim.api.nvim_create_augroup('UserLspConfig', {}),
 	callback = function(ev)
+		-- Enable lsp overload
+		--- Guard against servers without the signatureHelper capability
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		if client.server_capabilities.signatureHelpProvider then
+			require('lsp-overloads').setup(client, {})
+		end
+		vim.print(ev)
 		-- Enable completion triggered by <c-x><c-o>
 		vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
 		local wk = require("which-key")
 		-- Buffer local mappings.
-		-- See `:help vim.lsp.*` for documentation on any of the below functions
 		local n_opts = { buffer = ev.buf }
 		local nv_opts = { mode = { "n", "v" }, buffer = ev.buf }
 		local ni_opts = { mode = { "n", "i" }, buffer = ev.buf }
 
+		-- See `:help vim.lsp.*` for documentation on any of the below functions
 		--normal mode
 		wk.register({
 			["<leader>"] = {
@@ -59,7 +66,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 		-- noraml and insert
 		wk.register({
-			["<c-s>"] = { vim.lsp.buf.signature_help, "signature help" }
+			["<c-s>"] = { "<cmd>LspOverloadsSignature<cr>", "signature help" },
+			-- ["<c-S>"] = { vim.lsp.buf.signature_help, "signature help" },
 		}, ni_opts)
 	end,
 })

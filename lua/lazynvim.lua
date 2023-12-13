@@ -37,9 +37,13 @@ require("lazy").setup({
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"folke/neodev.nvim",
-			"folke/which-key.nvim"
+			"folke/which-key.nvim",
+			'Issafalcon/lsp-overloads.nvim'
 		},
 		config = require("user/lspconfig")
+	},
+	{
+		'Issafalcon/lsp-overloads.nvim',
 	},
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-buffer" },
