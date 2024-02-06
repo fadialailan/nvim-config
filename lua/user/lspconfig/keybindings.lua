@@ -27,14 +27,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 						floating_window_above_cur_line = false, -- Attempt to float the popup above the cursor position
 						-- (note, if the height of the float would be greater than the space left above the cursor, it will default
 						-- to placing the float below the cursor. The max_height option allows for finer tuning of this)
-						silent = true -- Prevents noisy notifications (make false to help debug why signature isn't working)
+						silent = true, -- Prevents noisy notifications (make false to help debug why signature isn't working)
 					},
 					keymaps = {
 						next_signature = "<C-j>",
 						previous_signature = "<C-k>",
 						next_parameter = "<C-l>",
 						previous_parameter = "<C-h>",
-						close_signature = "<A-s>"
+						close_signature = "<A-s>",
 					},
 					display_automatically = false, -- Uses trigger characters to automatically display the signature overloads when typing a method signature
 					silent = true,

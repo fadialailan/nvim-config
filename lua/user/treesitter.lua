@@ -11,10 +11,10 @@ return function()
 		    'typescript', 'vim',"vimdoc", 'vue',"rust",
 		  }, ]]
 		ensure_installed = {
-		    'astro','c', 'css', 'glimmer', 'graphql', 'html', 'javascript',
-		    'lua', 'nix', 'php', 'python',"rust", 'scss', 'svelte', 'tsx', 'twig',
-		    'typescript', 'vim',"vimdoc", 'vue',"rust",
-		  },
+			'astro', 'c', 'css', 'glimmer', 'graphql', 'html', 'javascript',
+			'lua', 'nix', 'php', 'python', "rust", 'scss', 'svelte', 'tsx', 'twig',
+			'typescript', 'vim', "vimdoc", 'vue', "rust",
+		},
 		--ensure_installed = "all"
 
 		-- Install parsers synchronously (only applied to `ensure_installed`)
@@ -29,7 +29,9 @@ return function()
 
 		highlight = {
 			enable = true,
-
+			disable = {
+				"ini", -- the highlighting for comments is confusing
+			},
 			additional_vim_regex_highlighting = false,
 		},
 		modules = { "highlight, indent, incremental_selection" },

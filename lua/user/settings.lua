@@ -6,6 +6,7 @@ vim.g.mapleader = " "
 vim.g.confirm = true
 vim.opt.wrap = false
 vim.opt.termguicolors = true
+vim.opt.backupcopy = "yes"
 
 -- testing
 vim.opt.updatetime = 100
