@@ -27,5 +27,35 @@ return function()
 		vim.keymap.set({ "n", "v" }, "<leader>" .. num,
 			function() bufferline.go_to(num, true) end, { desc = "goto " .. num })
 	end
-	vim.keymap.set({ "n", "v" }, "<leader>bc", "<cmd>bdelete<cr>", { desc = "close current buffer" })
+
+	local wk = require("which-key")
+	wk.register({
+		["<leader>"] = {
+			bl = {
+
+				name = "buffer line",
+				p = { "<cmd>BufferLinePick<cr>", "pick" },
+				c = {
+					name = "close",
+					l = { "<cmd>BufferLineCloseLeft<cr>", "left" },
+					o = { "<cmd>BufferLineCloseOthers<cr>", "others" },
+					r = { "<cmd>BufferLineCloseRight<cr>", "right" },
+				},
+			},
+
+			["<S-h>"] = { "<cmd>BufferLineMovePrev<cr>", "move left" },
+			["<S-l>"] = { "<cmd>BufferLineMoveNext<cr>", "move left" },
+		}
+	})
+
+	local hydra = require("hydra")
+	hydra({
+		name = "change tab",
+		body = "<leader>",
+		mode = { "n" },
+		heads = {
+			{ "l", "<cmd>BufferLineCycleNext<cr>",    { desc = "Move right" } },
+			{ "h", "<cmd>BufferLineCyclePrev<cr>",    { desc = "Move left" } },
+		},
+	})
 end

@@ -217,7 +217,11 @@ require("lazy").setup({
 	{
 		'akinsho/bufferline.nvim',
 		version = "*",
-		dependencies = 'nvim-tree/nvim-web-devicons',
+		dependencies = {
+			'nvim-tree/nvim-web-devicons',
+			"folke/which-key.nvim",
+			"anuvyklack/hydra.nvim",
+		},
 		config = require("user/bufferline")
 	},
 	{
