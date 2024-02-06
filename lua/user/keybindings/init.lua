@@ -40,7 +40,19 @@ return function()
 		[","] = { "<gv", "remove indent" },
 	}, { mode = { "v" } })
 
-
 	--[[ wk.register({
 	}, { mode = { "i" } }) ]]
+
+	-- commands
+	vim.api.nvim_create_user_command("SudoWrite", function (opts)
+		local filename = vim.fn.shellescape( opts.args)
+		if filename == "''" then
+			filename = "%"
+		end
+		-- vim.cmd("w !sudo tee " .)
+		local command = string.format("w !sudo tee %s > /dev/null", filename)
+		-- print(command)
+		vim.cmd(command)
+		vim.cmd("e!")
+	end, {nargs="*"})
 end
