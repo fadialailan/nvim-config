@@ -101,4 +101,6 @@ M.astro = {}
 
 M.asm_lsp = {}
 
+M.phpactor = {}
+
 return M
