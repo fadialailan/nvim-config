@@ -2,11 +2,14 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.timeoutlen = 500
 vim.opt.switchbuf = "vsplit"
-vim.g.mapleader = " "
-vim.g.confirm = true
 vim.opt.wrap = false
 vim.opt.termguicolors = true
 vim.opt.backupcopy = "yes"
+vim.g.mapleader = " "
+vim.g.confirm = true
+vim.o.updatetime = 300
+vim.o.incsearch = false
+vim.wo.signcolumn = 'yes'
 
 -- testing
 vim.opt.updatetime = 100
