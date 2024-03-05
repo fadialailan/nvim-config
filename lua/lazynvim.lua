@@ -163,9 +163,10 @@ require("lazy").setup({
 		"tanvirtin/vgit.nvim",
 		dependencies = { 'nvim-lua/plenary.nvim'},
 		config = function ()
-			require("vgit").setup();
-			vim.keymap.set("n", "<leader>cgd", "<cmd>VGit project_diff_preview<cr>", { desc = "project diffview" })
-			vim.keymap.set("n", "<leader>cgD", "<cmd>VGit buffer_diff_preview<cr>", { desc = "buffer diffview" })
+			local vgit = require("vgit");
+			vgit.setup();
+			vim.keymap.set("n", "<leader>cgd", vgit.project_diff_preview, { desc = "project diffview" })
+			vim.keymap.set("n", "<leader>cgD", vgit.buffer_diff_preview, { desc = "buffer diffview" })
 		end
 	},
 	{
