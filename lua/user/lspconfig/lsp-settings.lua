@@ -103,4 +103,6 @@ M.asm_lsp = {}
 
 M.phpactor = {}
 
+M.yamlls = {}
+
 return M
