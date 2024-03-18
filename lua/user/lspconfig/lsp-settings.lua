@@ -63,6 +63,7 @@ M.rust_analyzer = {
 }
 
 M.zls = {}
+vim.g.zig_fmt_autosave = 0 -- disable fmt on save for zls
 
 M.serve_d = {
 	--[[ root_dir = function (filename)
