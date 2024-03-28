@@ -11,6 +11,9 @@ vim.o.updatetime = 300
 vim.o.incsearch = false
 vim.wo.signcolumn = 'yes'
 
+-- allow bi-directional movement to be handled by the terminal
+vim.opt.termbidi = true
+
 -- testing
 vim.opt.updatetime = 100
 

@@ -106,4 +106,6 @@ M.phpactor = {}
 
 M.yamlls = {}
 
+M.tailwindcss = {}
+
 return M

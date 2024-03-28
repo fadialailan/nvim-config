@@ -104,7 +104,9 @@ require("lazy").setup({
 	{
 		'windwp/nvim-autopairs',
 		event = "InsertEnter",
-		opts = {} -- this is equalent to setup({}) function
+		opts = {
+			disable_filetype = { "TelescopePrompt", "spectre_panel", "m4" }
+		} -- this is equalent to setup({}) function
 	},
 	{
 		"kylechui/nvim-surround",
