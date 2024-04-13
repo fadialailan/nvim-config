@@ -108,4 +108,8 @@ M.yamlls = {}
 
 M.tailwindcss = {}
 
+M.prismals = {}
+
+M.csharp_ls = {}
+
 return M
