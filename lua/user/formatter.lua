@@ -35,6 +35,26 @@ return function()
 					}
 				end
 			},
+			xml = {
+				function ()
+					return {
+						exe = "xmllint",
+						args = {
+							"--format",
+							"-"
+						},
+						stdin = true,
+					}
+				end
+			},
+			json = {
+				function ()
+					return {
+						exe = "jq",
+						stdin = true,
+					}
+				end
+			},
 		},
 	})
 

@@ -131,6 +131,16 @@ require("lazy").setup({
 	},
 	require("user/nvim-tree"),
 	{
+		"antosha417/nvim-lsp-file-operations",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-tree.lua",
+		},
+		config = function()
+			require("lsp-file-operations").setup()
+		end,
+	},
+	{
 		"gennaro-tedesco/nvim-possession",
 		dependencies = {
 			"ibhagwan/fzf-lua",
@@ -163,8 +173,8 @@ require("lazy").setup({
 	-- },
 	{
 		"tanvirtin/vgit.nvim",
-		dependencies = { 'nvim-lua/plenary.nvim'},
-		config = function ()
+		dependencies = { 'nvim-lua/plenary.nvim' },
+		config = function()
 			local vgit = require("vgit");
 			vgit.setup();
 			vim.keymap.set("n", "<leader>cgd", vgit.project_diff_preview, { desc = "project diffview" })
