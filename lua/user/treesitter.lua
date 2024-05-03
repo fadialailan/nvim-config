@@ -51,6 +51,10 @@ return function()
 		-- },
 	})
 
+	require("ts_context_commentstring").setup({
+		enable_autocmd = false,
+	})
+
 	vim.opt.foldmethod = "expr"
 	vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 	vim.cmd(":set nofoldenable")
