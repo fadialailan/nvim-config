@@ -45,10 +45,10 @@ return function()
 		},
 
 		-- for nvim-ts-context-commentstring
-		context_commentstring = {
-			enable = true,
-			enable_autocmd = false,
-		},
+		-- context_commentstring = {
+		-- 	enable = true,
+		-- 	enable_autocmd = false,
+		-- },
 	})
 
 	vim.opt.foldmethod = "expr"
