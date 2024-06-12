@@ -37,14 +37,14 @@ return function()
 				p = { "<cmd>BufferLinePick<cr>", "pick" },
 				c = {
 					name = "close",
-					l = { "<cmd>BufferLineCloseLeft<cr>", "left" },
+					h = { "<cmd>BufferLineCloseLeft<cr>", "left" },
 					o = { "<cmd>BufferLineCloseOthers<cr>", "others" },
-					r = { "<cmd>BufferLineCloseRight<cr>", "right" },
+					l = { "<cmd>BufferLineCloseRight<cr>", "right" },
 				},
 			},
 
 			["<S-h>"] = { "<cmd>BufferLineMovePrev<cr>", "move left" },
-			["<S-l>"] = { "<cmd>BufferLineMoveNext<cr>", "move left" },
+			["<S-l>"] = { "<cmd>BufferLineMoveNext<cr>", "move right" },
 		}
 	})
 
