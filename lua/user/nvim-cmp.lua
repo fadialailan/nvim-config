@@ -33,6 +33,18 @@ return function()
 		end
 	end
 
+	CmpEnabled = true
+
+	local function is_cmp_enabled()
+		return CmpEnabled
+	end
+
+	local function cmp_toggle()
+		CmpEnabled = not CmpEnabled
+	end
+
+	vim.api.nvim_create_user_command("CmpToggle", cmp_toggle, {})
+
 	cmp.setup({
 		snippet = {
 			-- REQUIRED - you must specify a snippet engine
@@ -43,6 +55,7 @@ return function()
 				-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
 			end,
 		},
+		enabled = is_cmp_enabled,
 		window = {
 			completion = cmp.config.window.bordered(),
 			documentation = cmp.config.window.bordered(),
