@@ -112,4 +112,6 @@ M.prismals = {}
 
 M.csharp_ls = {}
 
+M.ols = {}
+
 return M
