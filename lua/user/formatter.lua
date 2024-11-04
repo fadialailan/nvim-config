@@ -55,6 +55,17 @@ return function()
 					}
 				end
 			},
+			markdown = {
+				function ()
+					return {
+						exe = "mdformat",
+						args = {
+							"--wrap",
+							"70"
+						}
+					}
+				end
+			}
 		},
 	})
 
