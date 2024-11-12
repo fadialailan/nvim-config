@@ -17,6 +17,7 @@ return function()
 					p = { "<cmd>sbp<cr>", "prev" },
 				},
 			},
+			cc = {name = "color highlighter"},
 			s = { name = "session" },
 			x = { name = "trouble" },
 			[";"] = { "<cmd>silent !" .. term .. "&<cr>", "open term" }
