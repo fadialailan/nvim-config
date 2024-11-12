@@ -65,6 +65,13 @@ return function()
 						}
 					}
 				end
+			},
+			yaml = {
+				function ()
+					return {
+						exe = "yamlfmt"
+					}
+				end
 			}
 		},
 	})
