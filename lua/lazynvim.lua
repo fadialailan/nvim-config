@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
+	{"isobit/vim-caddyfile"},
 	{ "folke/neoconf.nvim", cmd = "Neoconf" },
 	{ "folke/neodev.nvim",  config = require("user/neodev") },
 	{
