@@ -114,4 +114,6 @@ M.csharp_ls = {}
 
 M.ols = {}
 
+M.docker_compose_language_service = {}
+
 return M
