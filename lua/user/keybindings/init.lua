@@ -24,6 +24,7 @@ return function()
 		},
 		["<C-j>"] = { "<cmd>move +1<cr>", "move line down" },
 		["<C-k>"] = { "<cmd>move -2<cr>", "move line up" },
+		["<BS>"] = {"<C-O>", "go back"},
 	})
 
 	wk.register({

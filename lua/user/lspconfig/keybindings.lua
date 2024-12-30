@@ -6,6 +6,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		-- Enable lsp overload
 		--- Guard against servers without the signatureHelper capability
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+		--- error checking
+		if not client then
+			vim.prtin("lsp client is nil")
+			return
+		end
+
 		if client.server_capabilities.signatureHelpProvider then
 			require('lsp-overloads').setup(client,
 				{

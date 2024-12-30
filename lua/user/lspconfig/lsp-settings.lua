@@ -116,6 +116,10 @@ M.ols = {}
 
 M.docker_compose_language_service = {}
 
-M.marksman = {}
+M.marksman = {
+	on_attach = function()
+		vim.keymap.set("n", "<CR>", vim.lsp.buf.definition, { desc = "follow link" })
+	end
+}
 
 return M
