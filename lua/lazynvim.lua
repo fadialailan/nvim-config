@@ -44,10 +44,10 @@ require("lazy").setup({
 					yaml = false,
 					cmp = false
 				},
-				perspective = {
-					priority = "root",
-					root_tell = "index.md"
-				},
+				-- perspective = {
+				-- 	priority = "root",
+				-- 	root_tell = "index.md"
+				-- },
 				mappings = {
 					MkdnEnter = false,
 					MkdnTab = false,
@@ -58,9 +58,9 @@ require("lazy").setup({
 					MkdnPrevHeading = false,
 					MkdnGoBack = false,
 					MkdnGoForward = false,
-					MkdnCreateLink = false,    -- see MkdnEnter
+					MkdnCreateLink = false, -- see MkdnEnter
 					MkdnCreateLinkFromClipboard = false, -- see MkdnEnter
-					MkdnFollowLink = false,    -- see MkdnEnter
+					MkdnFollowLink = false, -- see MkdnEnter
 					MkdnDestroyLink = false,
 					MkdnTagSpan = false,
 					MkdnMoveSource = false,
@@ -229,10 +229,18 @@ require("lazy").setup({
 		"gennaro-tedesco/nvim-possession",
 		dependencies = {
 			"ibhagwan/fzf-lua",
+			"nvim-tree/nvim-tree.lua",
 		},
-		config = true,
-		init = function()
+		config = function()
 			local possession = require("nvim-possession")
+			possession.setup({
+				autosave = false,
+				-- autoload = true,
+				post_hock = function()
+					require('nvim-tree').toggle(false, true)
+				end
+			})
+
 			vim.keymap.set("n", "<leader>sl", function()
 				possession.list()
 			end, { desc = "list" })
