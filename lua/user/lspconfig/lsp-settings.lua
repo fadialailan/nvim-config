@@ -88,13 +88,14 @@ M.ccls = {
 
 M.html = {}
 
-local tsserver_capabilities = vim.lsp.protocol.make_client_capabilities()
-
-tsserver_capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-M.tsserver = {
-	capabilities = tsserver_capabilities,
-}
+-- local tsserver_capabilities = vim.lsp.protocol.make_client_capabilities()
+--
+-- tsserver_capabilities.textDocument.completion.completionItem.snippetSupport = true
+--
+-- M.tsserver = {
+-- 	capabilities = tsserver_capabilities,
+-- }
+M.ts_ls = {}
 
 M.texlab = {}
 
@@ -102,7 +103,20 @@ M.astro = {}
 
 M.asm_lsp = {}
 
-M.phpactor = {}
+-- M.phpactor = {}
+M.intelephense = {
+	settings = {
+		intelephense = {
+			stubs = {
+				"wordpress", --using custom stubs more up to date
+				"woocommerce",
+				"acf-pro",
+				"acf-stubs",
+				"wordpress-globals", -- using custom stubs more up to date
+			}
+		}
+	}
+}
 
 M.yamlls = {}
 
@@ -121,5 +135,7 @@ M.marksman = {
 		vim.keymap.set("n", "<CR>", vim.lsp.buf.definition, { desc = "follow link" })
 	end
 }
+
+M.jsonls = {}
 
 return M
