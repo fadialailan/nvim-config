@@ -24,8 +24,17 @@ return function()
 		},
 	})
 	for num = 1, 9 do
+
+		local function bufferline_pick_and_close()
+			bufferline.exec(num,
+				function(local_num, table)
+					vim.cmd("bdelete " .. local_num.id)
+				end)
+		end
+
 		vim.keymap.set({ "n", "v" }, "<leader>" .. num,
 			function() bufferline.go_to(num, true) end, { desc = "goto " .. num })
+		vim.keymap.set({ "n" }, "<leader>blc" .. num, bufferline_pick_and_close, { desc = "close " .. num })
 	end
 
 	local wk = require("which-key")
@@ -54,8 +63,8 @@ return function()
 		body = "<leader>",
 		mode = { "n" },
 		heads = {
-			{ "l", "<cmd>BufferLineCycleNext<cr>",    { desc = "Move right" } },
-			{ "h", "<cmd>BufferLineCyclePrev<cr>",    { desc = "Move left" } },
+			{ "l", "<cmd>BufferLineCycleNext<cr>", { desc = "Move right" } },
+			{ "h", "<cmd>BufferLineCyclePrev<cr>", { desc = "Move left" } },
 		},
 	})
 end
