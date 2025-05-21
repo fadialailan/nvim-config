@@ -13,7 +13,15 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
-	-- {"neoclide/coc.nvim"},
+	{
+		"nvim-telescope/telescope-frecency.nvim",
+		-- install the latest stable version
+		version = "*",
+		config = function()
+			require("telescope").load_extension("frecency")
+			vim.keymap.set({ "n" }, "<leader>fr", "<cmd>Telescope frecency<cr>", { desc = "recent files" })
+		end,
+	},
 	{ "isobit/vim-caddyfile" },
 	{ "folke/neoconf.nvim",  cmd = "Neoconf" },
 	{ "folke/neodev.nvim",   config = require("user/neodev") },
