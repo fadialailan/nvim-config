@@ -1,6 +1,6 @@
 local M = {}
 
-M.set_indent_with_tabs = function (tab_size)
+M.set_indent_with_spaces = function (tab_size)
 	if tab_size == nil then
 		tab_size = 4
 	end
