@@ -138,4 +138,6 @@ M.marksman = {
 
 M.jsonls = {}
 
+M.dartls = {}
+
 return M
